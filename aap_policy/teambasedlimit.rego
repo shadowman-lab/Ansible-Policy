@@ -29,7 +29,7 @@ team_based_limit_restriction := result if {
 
     result := {
     "allowed": false,
-    "violations": [sprintf("limit contains disallowed values: %v. Allowed limits for your teams (%v): %v", [violating_limits, user_teams, allowed_values_for_user_teams(user_teams)])],
+    "violations": [sprintf("limit contains disallowed values: %v. Allowed limits for your teams (%v): %v", [input_limit, user_teams, allowed_values_for_user_teams(user_teams)])],
     }
 }
 
