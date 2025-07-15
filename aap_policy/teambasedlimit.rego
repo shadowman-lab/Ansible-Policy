@@ -17,7 +17,7 @@ default team_based_limit_restriction := {
 # Evaluate limits against allowed values considering team memberships
 team_based_limit_restriction := result if {
     # Extract extra_vars from input
-    input_limit := object.get(input, ["limit"], {})
+    input_limit := object.get(input, ["limit"], "")
 
     # Extract user's team names
     user_teams := {team | team := input.created_by.teams[_].name}
