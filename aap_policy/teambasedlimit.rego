@@ -23,9 +23,8 @@ team_based_limit_restriction := result if {
     user_teams := {team | team := input.created_by.teams[_].name}
 
     allowed_vals := allowed_values_for_user_teams(user_teams)
-    input_value := input_limit
-    allowed_values_for_user_teams(user_teams)
-    not allowed_value(input_value, allowed_vals)
+
+    not allowed_value(input_limit, allowed_vals)
 
     result := {
     "allowed": false,
@@ -35,7 +34,7 @@ team_based_limit_restriction := result if {
 
 # Retrieve all allowed values based on user's teams
 allowed_values_for_user_teams(teams) := team_values if {
-    team_values := {val | team := teams[_]; val := valid_limit_values_by_team[team][_]}
+    team_values := {val | team := teams[_]; val := valid_limit_values_by_team[team][_]; valid_limit_values_by_team[team]}
 }
 
 # Check if given value is in allowed values set
