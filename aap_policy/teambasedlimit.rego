@@ -28,13 +28,13 @@ team_based_limit_restriction := result if {
 
     result := {
     "allowed": false,
-    "violations": [sprintf("limit contains disallowed values: %v. Allowed limits for your teams (%v): %v", [input_limit, user_teams, allowed_values_for_user_teams(user_teams)])],
+    "violations": [sprintf("limit contains disallowed values: %v. Allowed limits for your teams (%v): %v", [input_limit, user_teams, allowed_vals])],
     }
 }
 
 # Retrieve all allowed values based on user's teams
 allowed_values_for_user_teams(teams) := team_values if {
-    team_values := {val | team := teams[_]; val := valid_limit_values_by_team[team][_]; valid_limit_values_by_team[team]}
+    team_values := {val | team := teams[_]; val := valid_limit_values_by_team[team][_]}
 }
 
 # Check if given value is in allowed values set
