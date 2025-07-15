@@ -32,12 +32,12 @@ team_based_limit_restriction := result if {
     }
 }
 
-# Retrieve all allowed values based on user's teams
+# Retrieve all allowed limits based on user's teams
 allowed_limits_for_user_teams(teams) := team_values if {
     team_values := {val | team := teams[_]; val := valid_limit_values_by_team[team][_]}
 }
 
-# Check if given value is in allowed values set
+# Check if given limit is in allowed values set
 allowed_limit(value, allowed_values) if {
     allowed_values[_] == value
 }
