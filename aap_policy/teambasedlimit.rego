@@ -39,5 +39,5 @@ allowed_values_for_user_teams(teams) := team_values if {
 
 # Check if given value is in allowed values set
 allowed_value(value, allowed_values) if {
-    contains(allowed_values, value)
+    allowed_values[_] == value
 }
