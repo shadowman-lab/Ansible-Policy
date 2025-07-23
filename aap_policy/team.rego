@@ -12,16 +12,16 @@ default team_restriction := {
 
 # allow if all allow
 team_restriction := result if {
+	violation_combined := array.concat(aap_team_limit.team_based_limit_restriction.violations,aap_team_vars.team_based_extra_vars_restriction.violations)
 	check_team_allowed
-	violations := [aap_team_limit.violations,aap_team_vars.violations]
 	result := {
 	    "allowed": false,
-	    "violations": [sprintf("Team evaluation failed with the following violations: %v", [violations])],
+	    "violations": [sprintf("Team evaluation failed with the following violations: %v", [violation_combined])],
     }
 }
 
 check_team_allowed if {
-	resultsarray := [aap_team_limit.allowed,aap_team_vars.allowed]
+	resultsarray := [aap_team_limit.team_based_limit_restriction.allowed,aap_team_vars.team_based_extra_vars_restriction.allowed]
 	some result in resultsarray
 	result == false
 }
