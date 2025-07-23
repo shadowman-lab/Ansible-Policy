@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_repoallowed
 
 import rego.v1
 

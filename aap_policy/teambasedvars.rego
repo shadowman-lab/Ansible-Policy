@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_team_vars
 
 import rego.v1
 

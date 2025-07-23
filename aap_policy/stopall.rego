@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_stopall
 
 import rego.v1
 

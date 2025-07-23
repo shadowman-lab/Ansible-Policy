@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_team_limit
 
 import rego.v1
 

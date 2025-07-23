@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_restrictednetwork
 
 import rego.v1
 

@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_maintenance
 
 # Define maintenance window in UTC
 maintenance_start_hour := 21 # 21:00 UTC (5 PM EDT)
