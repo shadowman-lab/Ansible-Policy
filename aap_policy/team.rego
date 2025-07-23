@@ -11,7 +11,11 @@ default team_restriction := {
 }
 
 # allow if all allow
-team_restriction := {
-	aap_team_limit.allow,
-	aap_team_vars.allow,
+team_restriction := result if {
+	aap_team_limit.allow
+	aap_team_vars.allow
+    result := {
+        "allowed": false,
+        "violations": ["Not allowed"],
+    }
 }
