@@ -1,4 +1,4 @@
-package aap_policy_examples
+package aap_relaunch
 
 import rego.v1
 
