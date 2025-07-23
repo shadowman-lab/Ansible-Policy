@@ -6,16 +6,21 @@ import data.aap_team_limit
 import data.aap_team_vars
 
 default team_restriction := {
-    "allowed": true,
-    "violations": [],
+	"allowed": true,
+	"violations": [],
 }
 
 # allow if all allow
 team_restriction := result if {
-	aap_team_limit.allow
-	aap_team_vars.allow
-    result := {
-        "allowed": false,
-        "violations": ["Not allowed"],
+	check_team_allowed
+	result := {
+	    "allowed": false,
+	    "violations": ["All Team Policies did not pass"],
     }
+}
+
+check_team_allowed if {
+	resultsarray := [aap_team_limit.allowed,aap_team_vars.allowed]
+	some result in resultsarray
+	result == false
 }
