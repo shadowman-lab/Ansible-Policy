@@ -20,7 +20,6 @@ team_restriction := result if {
 }
 
 check_team_allowed if {
-	resultsarray := [aap_team_limit.allowed,aap_team_vars.allowed]
-	some result in resultsarray
-	result == false
+    aap_team_limit.allow
+    aap_team_vars.allow
 }
